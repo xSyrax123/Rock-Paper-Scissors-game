@@ -108,11 +108,12 @@ class rock_paper_scissors:
                 print("- Paper wins over rock (because paper covers rock).")
                 print("- If both players show the same sign, it's a tie.\n")
                 input("Press a key to return to the main menu...")
-                self._clear()
             elif choice == 3:
                 exit()
             else:
                 print("You have entered a number that isn't in the list.")
+
+            self._clear()
             
 
 if __name__ == '__main__':
