@@ -29,19 +29,19 @@ class rock_paper_scissors:
             _ = system("CLEAR")
 
     def _spacer_size(self, length=65):
-        return '-' * length
+        return "-" * length
 
     def _player_move(self):
         while True:
             try:
-                option = int(input('Choose an option between Rock (1), Paper (2), Scissors (3): '))
+                option = int(input("Choose an option between Rock (1), Paper (2), Scissors (3): "))
 
                 if 1 <= option <= 3:
                     break
                 else:
-                    print('You can only enter a number between 1 and 3.')    
+                    print("You can only enter a number between 1 and 3.")    
             except ValueError:
-                print('The value entered is invalid. You can only enter numeric values.')
+                print("The value entered is invalid. You can only enter numeric values.")
 
         return option
 
@@ -50,11 +50,11 @@ class rock_paper_scissors:
 
     def _check_winner(self):
         if self.player_wins == self.computer_wins:
-            return 'Tie.'
+            return "Tie."
         elif self.player_wins > self.computer_wins:
-            return 'You won the set.'
+            return "You won the set."
         else:
-            return 'Computer wins the set.'
+            return "Computer wins the set."
 
     def _play(self):
         times = int(input("How many times do you wish to play?: "))
@@ -62,20 +62,19 @@ class rock_paper_scissors:
         for i in range(times):
             player = self._player_move()
             computer = self._computer_move()
-            print(f'You chose {Hand(player)}')
-            print(f'The computer chose {Hand(computer)}')
+            print(f"You chose {Hand(player)}. | The computer chose {Hand(computer)}.")
 
             if player == computer:
-                print('Tie.\n')
-                print(self._spacer_size(), '\n')
+                print("It's a tie.\n")
             elif (player-computer) % 3 == 1:
-                print('You won.\n')
-                print(self._spacer_size(), '\n')
+                print("You won.\n")
                 self.player_wins += 1
             else:
-                print('You lost.\n')
-                print(self._spacer_size(), '\n')
+                print("You lost.\n")
                 self.computer_wins += 1
+
+            print(f"Player wins: {self.player_wins} | Computer wins: {self.computer_wins}\n")
+            print(self._spacer_size(), "\n")
 
         print(self._check_winner())
         input("Press a key to return to the main menu...")
@@ -85,25 +84,25 @@ class rock_paper_scissors:
     def main(self, length=95):
         while True:
             try:
-                print('-' * length, '\n')
-                print('''
+                print("-" * length, "\n")
+                print("""
                 █▀█ █▀█ █▀▀ █▄▀ ░   █▀█ ▄▀█ █▀█ █▀▀ █▀█ ░   █▀ █▀▀ █ █▀ █▀ █▀█ █▀█ █▀
                 █▀▄ █▄█ █▄▄ █░█ █   █▀▀ █▀█ █▀▀ ██▄ █▀▄ █   ▄█ █▄▄ █ ▄█ ▄█ █▄█ █▀▄ ▄█                                                   
-                '''.center(10))
-                print('-' * length, '\n')
-                print('1. Play'.center(length))
-                print('2. Instructions'.center(length))
-                print('3. Exit'.center(length))
-                choice = int(input('\nEnter an option: '))
+                """.center(10))
+                print("-" * length, "\n")
+                print("1. Play".center(length))
+                print("2. Instructions".center(length))
+                print("3. Exit".center(length))
+                choice = int(input("\nEnter an option: "))
             except ValueError:
-                print('The value entered is invalid. You can only enter numeric values.')
+                print("The value entered is invalid. You can only enter numeric values.")
+
+            self._clear()
 
             if choice == 1:
-                self._clear()
                 self._play()
                 break
             elif choice == 2:
-                self._clear()
                 print("  Instructions for Rock, Paper, Scissors: ")
                 print("- Rock wins over scissors (because rock smashes scissors).")
                 print("- Scissors wins over paper (because scissors cut paper).")
@@ -115,7 +114,6 @@ class rock_paper_scissors:
                 exit()
             else:
                 print("You have entered a number that isn't in the list.")
-                self._clear()
             
 
 if __name__ == '__main__':
