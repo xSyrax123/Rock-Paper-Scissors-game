@@ -42,7 +42,6 @@ class rock_paper_scissors:
                     print("You can only enter a number between 1 and 3.")    
             except ValueError:
                 print("The value entered is invalid. You can only enter numeric values.")
-
         return option
 
     def _computer_move(self):
