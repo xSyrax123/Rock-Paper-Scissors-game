@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Rock, Paper, Scissors
 from enum import Enum
-from os import system
+from os import system, name
 from random import randint
 from sys import exit
 
@@ -20,6 +20,14 @@ class rock_paper_scissors:
         self.player_wins = 0
         self.computer_wins = 0
 
+    def _clear(self):
+        # For windows.
+        if name == 'nt':
+            _ = system("CLS")
+        # For mac and linux (here, os.name is 'posix').
+        else:
+            _ = system("CLEAR")
+
     def _spacer_size(self, length=65):
         return '-' * length
 
@@ -34,6 +42,7 @@ class rock_paper_scissors:
                     print('You can only enter a number between 1 and 3.')    
             except ValueError:
                 print('The value entered is invalid. You can only enter numeric values.')
+
         return option
 
     def _computer_move(self):
@@ -70,7 +79,7 @@ class rock_paper_scissors:
 
         print(self._check_winner())
         input("Press a key to return to the main menu...")
-        system("CLS")
+        self._clear()
         self.main()
             
     def main(self, length=95):
@@ -90,23 +99,23 @@ class rock_paper_scissors:
                 print('The value entered is invalid. You can only enter numeric values.')
 
             if choice == 1:
-                system("CLS")
+                self._clear()
                 self._play()
                 break
             elif choice == 2:
-                system("CLS")
+                self._clear()
                 print("  Instructions for Rock, Paper, Scissors: ")
                 print("- Rock wins over scissors (because rock smashes scissors).")
                 print("- Scissors wins over paper (because scissors cut paper).")
                 print("- Paper wins over rock (because paper covers rock).")
                 print("- If both players show the same sign, it's a tie.\n")
                 input("Press a key to return to the main menu...")
-                system("CLS")
+                self._clear()
             elif choice == 3:
                 exit()
             else:
                 print("You have entered a number that isn't in the list.")
-                system("CLS")
+                self._clear()
             
 
 if __name__ == '__main__':
