@@ -65,7 +65,7 @@ class rock_paper_scissors:
             print(f"You chose {Hand(player)}. | The computer chose {Hand(computer)}.")
 
             if player == computer:
-                print("It's a tie.\n")
+                print("It's a draw.\n")
                 self.draws += 1
             elif (player-computer) % 3 == 1:
                 print("You won.\n")
