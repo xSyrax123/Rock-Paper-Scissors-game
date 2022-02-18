@@ -1,18 +1,20 @@
-from Hand import *
-from os import system, name
+import colorama
 from random import randint
 from sys import exit
+from Hand import *
 
     
-class rock_paper_scissors:
+class RockPaperScissors:
     def __init__(self):
         self.player_wins = 0
         self.computer_wins = 0
         self.draws = 0
-        self.clear = "CLS" if name == 'nt' else "CLEAR"
 
     def _spacer_size(self, length=65):
         return "-" * length
+
+    def _clear_screen(self):
+        print(colorama.ansi.clear_screen(), end='')
 
     def _player_move(self):
         while True:
@@ -65,7 +67,6 @@ class rock_paper_scissors:
         self.draws = 0
         print(self._check_winner())
         input("Press a key to return to the main menu...")
-        system(self.clear)
         self.main()
             
     def main(self, length=95):
@@ -84,7 +85,7 @@ class rock_paper_scissors:
             except ValueError:
                 print("The value entered is invalid. You can only enter numeric values.")
 
-            system(self.clear)
+            self._clear_screen()
 
             if choice == 1:
                 self._play()
@@ -103,9 +104,9 @@ class rock_paper_scissors:
             else:
                 print("You have entered a number that isn't in the list.")
 
-            system(self.clear)
+            self._clear_screen()
             
 
 if __name__ == '__main__':
-    game = rock_paper_scissors()
+    game = RockPaperScissors()
     game.main()
