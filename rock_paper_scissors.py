@@ -19,6 +19,7 @@ class rock_paper_scissors:
     def __init__(self):
         self.player_wins = 0
         self.computer_wins = 0
+        self.draws = 0
 
     def _clear(self):
         # For windows.
@@ -65,6 +66,7 @@ class rock_paper_scissors:
 
             if player == computer:
                 print("It's a tie.\n")
+                self.draws += 1
             elif (player-computer) % 3 == 1:
                 print("You won.\n")
                 self.player_wins += 1
@@ -72,7 +74,7 @@ class rock_paper_scissors:
                 print("You lost.\n")
                 self.computer_wins += 1
 
-            print(f"Player wins: {self.player_wins} | Computer wins: {self.computer_wins}\n")
+            print(f"Player wins: {self.player_wins} || Computer wins: {self.computer_wins} || Draws: {self.draws}\n")
             print(self._spacer_size(), "\n")
 
         print(self._check_winner())
