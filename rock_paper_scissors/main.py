@@ -27,7 +27,8 @@ class RockPaperScissors:
                     print("You can only enter a number between 1 and 3.\n")
                     print(f'{self._spacer_size()}\n')    
             except ValueError:
-                print("The value entered is invalid. You can only enter numeric values.")
+                print("The value entered is invalid. You can only enter numeric values.\n")
+                print(f'{self._spacer_size()}\n') 
         return option
 
     def _computer_move(self):
@@ -35,7 +36,7 @@ class RockPaperScissors:
 
     def _check_winner(self):
         if self.player_wins == self.computer_wins:
-            return "It's a tie."
+            return "It's a draw."
         elif self.player_wins > self.computer_wins:
             return "You won the set."
         else:
@@ -47,7 +48,7 @@ class RockPaperScissors:
         for i in range(times):
             player = self._player_move()
             computer = self._computer_move()
-            print(f"You chose {Hand(player)}. | The computer chose {Hand(computer)}.")
+            print(f"You chose {Hand(player)}. || The computer chose {Hand(computer)}.")
 
             if player == computer:
                 print("It's a draw.\n")
@@ -61,12 +62,13 @@ class RockPaperScissors:
 
             print(f"Player wins: {self.player_wins} || Computer wins: {self.computer_wins} || Draws: {self.draws}\n")
             print(f'{self._spacer_size()}\n')
-            
+
+        print(self._check_winner())    
         self.player_wins = 0
         self.computer_wins = 0
         self.draws = 0
-        print(self._check_winner())
         input("Press a key to return to the main menu...")
+        self._clear_screen()
         self.main()
             
     def main(self, length=95):
@@ -108,5 +110,9 @@ class RockPaperScissors:
             
 
 if __name__ == '__main__':
-    game = RockPaperScissors()
-    game.main()
+    try:
+        colorama.init()
+        game = RockPaperScissors()
+        game.main()
+    finally:
+        colorama.deinit()
