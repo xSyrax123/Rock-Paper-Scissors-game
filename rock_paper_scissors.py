@@ -40,7 +40,8 @@ class rock_paper_scissors:
                 if 1 <= option <= 3:
                     break
                 else:
-                    print("You can only enter a number between 1 and 3.")    
+                    print("You can only enter a number between 1 and 3.\n")
+                    print(f'{self._spacer_size()}\n')    
             except ValueError:
                 print("The value entered is invalid. You can only enter numeric values.")
         return option
@@ -75,7 +76,7 @@ class rock_paper_scissors:
                 self.computer_wins += 1
 
             print(f"Player wins: {self.player_wins} || Computer wins: {self.computer_wins} || Draws: {self.draws}\n")
-            print(self._spacer_size(), "\n")
+            print(f'{self._spacer_size()}\n')
 
         print(self._check_winner())
         input("Press a key to return to the main menu...")
