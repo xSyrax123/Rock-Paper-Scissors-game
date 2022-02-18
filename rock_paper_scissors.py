@@ -106,7 +106,7 @@ class rock_paper_scissors:
                 self._play()
                 break
             elif choice == 2:
-                print(f"""
+                input(f"""
                       Instructions for Rock, Paper, Scissors:
                     - Rock wins over scissors (because rock smashes scissors).
                     - Scissors wins over paper (because scissors cut paper).
@@ -114,7 +114,6 @@ class rock_paper_scissors:
                     - If both players show the same sign, it's a tie.\n
                     Press a key to return to the main menu...                        
                     """.center(length))
-                input()
             elif choice == 3:
                 exit()
             else:
