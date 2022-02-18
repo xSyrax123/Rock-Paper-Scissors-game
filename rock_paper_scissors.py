@@ -77,7 +77,10 @@ class rock_paper_scissors:
 
             print(f"Player wins: {self.player_wins} || Computer wins: {self.computer_wins} || Draws: {self.draws}\n")
             print(f'{self._spacer_size()}\n')
-
+            
+        self.player_wins = 0
+        self.computer_wins = 0
+        self.draws = 0
         print(self._check_winner())
         input("Press a key to return to the main menu...")
         self._clear()
