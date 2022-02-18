@@ -20,14 +20,12 @@ class rock_paper_scissors:
         self.player_wins = 0
         self.computer_wins = 0
         self.draws = 0
-
-    def _clear(self):
         # For windows.
         if name == 'nt':
-            _ = system("CLS")
+            self.clear = "CLS"
         # For mac and linux (here, os.name is 'posix').
         else:
-            _ = system("CLEAR")
+            self.clear = "CLEAR"
 
     def _spacer_size(self, length=65):
         return "-" * length
@@ -83,7 +81,7 @@ class rock_paper_scissors:
         self.draws = 0
         print(self._check_winner())
         input("Press a key to return to the main menu...")
-        self._clear()
+        system(self.clear)
         self.main()
             
     def main(self, length=95):
@@ -102,24 +100,27 @@ class rock_paper_scissors:
             except ValueError:
                 print("The value entered is invalid. You can only enter numeric values.")
 
-            self._clear()
+            system(self.clear)
 
             if choice == 1:
                 self._play()
                 break
             elif choice == 2:
-                print("  Instructions for Rock, Paper, Scissors: ")
-                print("- Rock wins over scissors (because rock smashes scissors).")
-                print("- Scissors wins over paper (because scissors cut paper).")
-                print("- Paper wins over rock (because paper covers rock).")
-                print("- If both players show the same sign, it's a tie.\n")
-                input("Press a key to return to the main menu...")
+                print(f"""
+                      Instructions for Rock, Paper, Scissors:
+                    - Rock wins over scissors (because rock smashes scissors).
+                    - Scissors wins over paper (because scissors cut paper).
+                    - Paper wins over rock (because paper covers rock).
+                    - If both players show the same sign, it's a tie.\n
+                    Press a key to return to the main menu...                        
+                    """.center(length))
+                input()
             elif choice == 3:
                 exit()
             else:
                 print("You have entered a number that isn't in the list.")
 
-            self._clear()
+            system(self.clear)
             
 
 if __name__ == '__main__':
