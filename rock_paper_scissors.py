@@ -49,7 +49,7 @@ class rock_paper_scissors:
 
     def _check_winner(self):
         if self.player_wins == self.computer_wins:
-            return "Tie."
+            return "It's a tie."
         elif self.player_wins > self.computer_wins:
             return "You won the set."
         else:
@@ -87,12 +87,12 @@ class rock_paper_scissors:
     def main(self, length=95):
         while True:
             try:
-                print("-" * length, "\n")
+                print(f"{'-' * length}\n")
                 print("""
                 █▀█ █▀█ █▀▀ █▄▀ ░   █▀█ ▄▀█ █▀█ █▀▀ █▀█ ░   █▀ █▀▀ █ █▀ █▀ █▀█ █▀█ █▀
                 █▀▄ █▄█ █▄▄ █░█ █   █▀▀ █▀█ █▀▀ ██▄ █▀▄ █   ▄█ █▄▄ █ ▄█ ▄█ █▄█ █▀▄ ▄█                                                   
                 """.center(10))
-                print("-" * length, "\n")
+                print(f"{'-' * length}\n")
                 print("1. Play".center(length))
                 print("2. Instructions".center(length))
                 print("3. Exit".center(length))
