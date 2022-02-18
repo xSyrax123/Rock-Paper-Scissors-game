@@ -9,12 +9,7 @@ class rock_paper_scissors:
         self.player_wins = 0
         self.computer_wins = 0
         self.draws = 0
-        # For windows.
-        if name == 'nt':
-            self.clear = "CLS"
-        # For mac and linux (here, os.name is 'posix').
-        else:
-            self.clear = "CLEAR"
+        self.clear = "CLS" if name == 'nt' else "CLEAR"
 
     def _spacer_size(self, length=65):
         return "-" * length
